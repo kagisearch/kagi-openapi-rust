@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **title** | Option<**String**> | Title of the search result. This can be taken from the title of the html document, or the title of a media resource. | [optional]
 **snippet** | Option<**String**> | a short desciption, or summary, of the content. | [optional]
 **published** | Option<**String**> | the date the rearch result was created | [optional]
-**thumbnail** | Option<[**models::SearchObjectThumbnail**](searchObject_thumbnail.md)> |  | [optional]
-**image** | Option<[**models::SearchObjectImage**](searchObject_image.md)> |  | [optional]
+**thumbnail** | Option<[**models::SearchObjectThumbnail**](SearchObjectThumbnail.md)> |  | [optional]
+**image** | Option<[**models::SearchObjectImage**](SearchObjectImage.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

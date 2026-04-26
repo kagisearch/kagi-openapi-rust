@@ -1,11 +1,11 @@
-# Search200Response
+# SearchRequestPersonalizationsRegexesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | Option<[**models::Meta**](Meta.md)> |  | [optional]
-**data** | Option<[**models::Search200ResponseData**](Search200ResponseData.md)> |  | [optional]
+**regex** | Option<**String**> | The regex pattern to match. | [optional]
+**replacement** | Option<**String**> | The replacement string to apply when the pattern matches. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

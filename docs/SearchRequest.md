@@ -5,10 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **query** | **String** | The search query to perform. | 
-**workflow** | Option<**String**> | Can be used to filter result output to a single category. | [optional][default to Search]
+**workflow** | Option<**Workflow**> | Can be used to filter result output to a single category. (enum: search, images, videos, news, podcasts) | [optional][default to Search]
 **lens_id** | Option<**String**> | A lens ID, as shown on https://kagi.com/settings/lenses when a lens is set to be shareable. Can be just the ID portion of the URL (`https://kagi.com/lenses/ID`), or the full URL. | [optional]
-**lens** | Option<[**models::SearchRequestLens**](search_request_lens.md)> |  | [optional]
+**lens** | Option<[**models::SearchRequestLens**](SearchRequestLens.md)> |  | [optional]
 **timeout** | Option<**f64**> | Number of seconds to allow for collecting search results. Lower values will return results more quickly, but may be lower quality or inconsistent between calls. If omitted, will use the latest recommended value by Kagi. | [optional]
+**page** | Option<**i32**> | Page number for paginated results. Must be between 1 and 10. | [optional]
+**limit** | Option<**i32**> | Maximum number of results to return. Must be between 1 and 1024. | [optional]
+**filters** | Option<[**models::SearchRequestFilters**](SearchRequestFilters.md)> |  | [optional]
+**extract** | Option<[**models::SearchRequestExtract**](SearchRequestExtract.md)> |  | [optional]
+**personalizations** | Option<[**models::SearchRequestPersonalizations**](SearchRequestPersonalizations.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

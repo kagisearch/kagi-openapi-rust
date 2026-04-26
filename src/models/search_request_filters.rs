@@ -11,72 +11,28 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// SearchRequest : Used to upload the search query
+/// SearchRequestFilters : Filters to apply to search results for more targeted queries.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct SearchRequest {
-    /// The search query to perform.
-    #[serde(rename = "query")]
-    pub query: String,
-    /// Can be used to filter result output to a single category.
-    #[serde(rename = "workflow", skip_serializing_if = "Option::is_none")]
-    pub workflow: Option<Workflow>,
-    /// A lens ID, as shown on https://kagi.com/settings/lenses when a lens is set to be shareable. Can be just the ID portion of the URL (`https://kagi.com/lenses/ID`), or the full URL.
-    #[serde(rename = "lens_id", skip_serializing_if = "Option::is_none")]
-    pub lens_id: Option<String>,
-    #[serde(rename = "lens", skip_serializing_if = "Option::is_none")]
-    pub lens: Option<Box<models::SearchRequestLens>>,
-    /// Number of seconds to allow for collecting search results. Lower values will return results more quickly, but may be lower quality or inconsistent between calls. If omitted, will use the latest recommended value by Kagi.
-    #[serde(rename = "timeout", skip_serializing_if = "Option::is_none")]
-    pub timeout: Option<f64>,
-    /// Page number for paginated results. Must be between 1 and 10.
-    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
-    pub page: Option<i32>,
-    /// Maximum number of results to return. Must be between 1 and 1024.
-    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
-    pub limit: Option<i32>,
-    #[serde(rename = "filters", skip_serializing_if = "Option::is_none")]
-    pub filters: Option<Box<models::SearchRequestFilters>>,
-    #[serde(rename = "extract", skip_serializing_if = "Option::is_none")]
-    pub extract: Option<Box<models::SearchRequestExtract>>,
-    #[serde(rename = "personalizations", skip_serializing_if = "Option::is_none")]
-    pub personalizations: Option<Box<models::SearchRequestPersonalizations>>,
+pub struct SearchRequestFilters {
+    /// Filter results to a specific region using an ISO-3166-1 Alpha-2 country code. See https://help.kagi.com/api/regions for supported codes.
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    /// Filter for results published/updated after this date. Must be in ISO 8601 format (YYYY-MM-DD).
+    #[serde(rename = "after", skip_serializing_if = "Option::is_none")]
+    pub after: Option<String>,
+    /// Filter for results published/updated before this date. Must be in ISO 8601 format (YYYY-MM-DD).
+    #[serde(rename = "before", skip_serializing_if = "Option::is_none")]
+    pub before: Option<String>,
 }
 
-impl SearchRequest {
-    /// Used to upload the search query
-    pub fn new(query: String) -> SearchRequest {
-        SearchRequest {
-            query,
-            workflow: None,
-            lens_id: None,
-            lens: None,
-            timeout: None,
-            page: None,
-            limit: None,
-            filters: None,
-            extract: None,
-            personalizations: None,
+impl SearchRequestFilters {
+    /// Filters to apply to search results for more targeted queries.
+    pub fn new() -> SearchRequestFilters {
+        SearchRequestFilters {
+            region: None,
+            after: None,
+            before: None,
         }
-    }
-}
-/// Can be used to filter result output to a single category.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Workflow {
-    #[serde(rename = "search")]
-    Search,
-    #[serde(rename = "images")]
-    Images,
-    #[serde(rename = "videos")]
-    Videos,
-    #[serde(rename = "news")]
-    News,
-    #[serde(rename = "podcasts")]
-    Podcasts,
-}
-
-impl Default for Workflow {
-    fn default() -> Workflow {
-        Self::Search
     }
 }
 
