@@ -55,7 +55,7 @@ pub enum TranslateDictionaryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum TranslateListLanguagesError {
-    Status401(models::ExampleError),
+    Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 

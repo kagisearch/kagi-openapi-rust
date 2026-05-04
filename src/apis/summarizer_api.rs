@@ -19,7 +19,7 @@ use super::{Error, configuration, ContentType};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SummarizeTextError {
-    Status401(models::ExampleError),
+    Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,7 +27,7 @@ pub enum SummarizeTextError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SummarizeUrlError {
-    Status401(models::ExampleError),
+    Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 

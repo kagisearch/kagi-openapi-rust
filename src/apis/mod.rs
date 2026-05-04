@@ -112,6 +112,7 @@ impl From<&str> for ContentType {
 }
 
 pub mod enrichment_api;
+pub mod extract_api;
 pub mod fast_gpt_api;
 pub mod search_api;
 pub mod summarizer_api;

@@ -19,7 +19,11 @@ use super::{Error, configuration, ContentType};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SearchError {
-    Status401(models::ExampleError),
+    Status400(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status403(models::ErrorEnvelope),
+    Status429(models::ErrorEnvelope),
+    Status500(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 

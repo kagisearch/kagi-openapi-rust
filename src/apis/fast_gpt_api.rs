@@ -19,7 +19,7 @@ use super::{Error, configuration, ContentType};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FastGptError {
-    Status401(models::ExampleError),
+    Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
