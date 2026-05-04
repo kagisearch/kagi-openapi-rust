@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **url** | **String** | The location of the result. This is the direct URL to the resource that matches the query | 
-**title** | **String** | This is the title of the resource. For HTML resources, it is the title in the header of the document. For Video resources, it is the name of the video that would be displayed on the video site | 
+**title** | **String** | This is the title of the resource. For HTML documents, it reflects `<title>`. For videos, it is the name that would be displayed on the video site. | 
 **snippet** | Option<**String**> | A short summary of the contents of the resource | [optional]
-**time** | Option<**String**> | A date for when the resource was last updated or created. | [optional]
+**time** | Option<**String**> | The date when the resource was created or last updated. | [optional]
 **image** | Option<[**models::SearchResultImage**](SearchResultImage.md)> |  | [optional]
 **props** | Option<**std::collections::HashMap<String, serde_json::Value>**> | Holds arbitrary result metadata | [optional]
 

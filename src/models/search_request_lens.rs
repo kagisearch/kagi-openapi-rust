@@ -11,30 +11,30 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// SearchRequestLens : An inline description of a lens to apply to the search. Options supplied by the lens take pecedent over those supplied by the user in their search terms (e.g., `site:` operators), allowing you to restrict the scope of the search to return more relevant results in specific applications.
+/// SearchRequestLens : Inline description of a lens to apply to the search. Options supplied by the lens take precedence over those supplied by the user in their search terms (e.g., `site:` operators), allowing you to restrict the scope of the search to return more relevant results in specific applications.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchRequestLens {
-    /// A list of domains to restrict the search to.
+    /// Search only these domains.
     #[serde(rename = "sites_included", skip_serializing_if = "Option::is_none")]
     pub sites_included: Option<Vec<String>>,
-    /// A list of domains to restrict the search to.
+    /// Exclude these domains from the search.
     #[serde(rename = "sites_excluded", skip_serializing_if = "Option::is_none")]
     pub sites_excluded: Option<Vec<String>>,
-    /// A list of keywords to filter results on, such that every result *must* contain these terms.
+    /// Return only results containing these keywords.
     #[serde(rename = "keywords_included", skip_serializing_if = "Option::is_none")]
     pub keywords_included: Option<Vec<String>>,
-    /// A list of keywords to filter results on, such that any result containing these terms is removed.
+    /// Exclude results containing these keywords.
     #[serde(rename = "keywords_excluded", skip_serializing_if = "Option::is_none")]
     pub keywords_excluded: Option<Vec<String>>,
     /// A specific file type to search for. (e.g., `pdf`)
     #[serde(rename = "file_type", skip_serializing_if = "Option::is_none")]
     pub file_type: Option<String>,
-    /// Filters for web pages that have been updated or published *after* the given date (`YYYY-MM-DD`).
+    /// Filters for web pages that have been updated or published *after* the given date.
     #[serde(rename = "time_after", skip_serializing_if = "Option::is_none")]
-    pub time_after: Option<String>,
-    /// Filters for web pages that have been updated or published *before* the given date (`YYYY-MM-DD`).
+    pub time_after: Option<chrono::NaiveDate>,
+    /// Filters for web pages that have been updated or published *before* the given date.
     #[serde(rename = "time_before", skip_serializing_if = "Option::is_none")]
-    pub time_before: Option<String>,
+    pub time_before: Option<chrono::NaiveDate>,
     /// Filters for web pages that have been updated or published in the given interval, relative to today's date.
     #[serde(rename = "time_relative", skip_serializing_if = "Option::is_none")]
     pub time_relative: Option<TimeRelative>,
@@ -44,7 +44,7 @@ pub struct SearchRequestLens {
 }
 
 impl SearchRequestLens {
-    /// An inline description of a lens to apply to the search. Options supplied by the lens take pecedent over those supplied by the user in their search terms (e.g., `site:` operators), allowing you to restrict the scope of the search to return more relevant results in specific applications.
+    /// Inline description of a lens to apply to the search. Options supplied by the lens take precedence over those supplied by the user in their search terms (e.g., `site:` operators), allowing you to restrict the scope of the search to return more relevant results in specific applications.
     pub fn new() -> SearchRequestLens {
         SearchRequestLens {
             sites_included: None,

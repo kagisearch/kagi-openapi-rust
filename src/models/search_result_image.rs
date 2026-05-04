@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// SearchResultImage : An image that goes with the main resource. This could be a thumbnail of a video resource, Or a main image on an html resource
+/// SearchResultImage : An image that goes with the main resource. It could be a video's thumbnail or an HTML document's main image.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchResultImage {
     /// This is a URL that links directly to the image that goes with the resources.
@@ -26,7 +26,7 @@ pub struct SearchResultImage {
 }
 
 impl SearchResultImage {
-    /// An image that goes with the main resource. This could be a thumbnail of a video resource, Or a main image on an html resource
+    /// An image that goes with the main resource. It could be a video's thumbnail or an HTML document's main image.
     pub fn new(url: String) -> SearchResultImage {
         SearchResultImage {
             url,

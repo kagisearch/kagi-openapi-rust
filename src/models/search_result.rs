@@ -17,13 +17,13 @@ pub struct SearchResult {
     /// The location of the result. This is the direct URL to the resource that matches the query
     #[serde(rename = "url")]
     pub url: String,
-    /// This is the title of the resource. For HTML resources, it is the title in the header of the document. For Video resources, it is the name of the video that would be displayed on the video site
+    /// This is the title of the resource. For HTML documents, it reflects `<title>`. For videos, it is the name that would be displayed on the video site.
     #[serde(rename = "title")]
     pub title: String,
     /// A short summary of the contents of the resource
     #[serde(rename = "snippet", skip_serializing_if = "Option::is_none")]
     pub snippet: Option<String>,
-    /// A date for when the resource was last updated or created.
+    /// The date when the resource was created or last updated.
     #[serde(rename = "time", skip_serializing_if = "Option::is_none")]
     pub time: Option<String>,
     #[serde(rename = "image", skip_serializing_if = "Option::is_none")]

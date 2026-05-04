@@ -4,21 +4,21 @@ All URIs are relative to *https://kagi.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**search**](SearchApi.md#search) | **POST** /search | Perform a search of the web.
+[**search**](SearchApi.md#search) | **POST** /search | Perform a web search
 
 
 
 ## search
 
 > models::Search200Response search(search_request)
-Perform a search of the web.
+Perform a web search
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**search_request** | [**SearchRequest**](SearchRequest.md) | Contains the search query to run | [required] |
+**search_request** | [**SearchRequest**](SearchRequest.md) |  | [required] |
 
 ### Return type
 

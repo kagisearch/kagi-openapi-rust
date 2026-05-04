@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 /// SearchRequest : Used to upload the search query
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchRequest {
-    /// The search query to perform.
+    /// Search query to run.
     #[serde(rename = "query")]
     pub query: String,
-    /// Can be used to filter result output to a single category.
+    /// Type of results to return.
     #[serde(rename = "workflow", skip_serializing_if = "Option::is_none")]
     pub workflow: Option<Workflow>,
-    /// A lens ID, as shown on https://kagi.com/settings/lenses when a lens is set to be shareable. Can be just the ID portion of the URL (`https://kagi.com/lenses/ID`), or the full URL.
+    /// Lens to apply to the search. Can be a built-in lens's identifier or a lens ID as shown on https://kagi.com/settings/lenses when a lens is set to be shareable. Can be just the ID portion of the URL (`https://kagi.com/lenses/ID`) or the full URL.
     #[serde(rename = "lens_id", skip_serializing_if = "Option::is_none")]
     pub lens_id: Option<String>,
     #[serde(rename = "lens", skip_serializing_if = "Option::is_none")]
@@ -59,7 +59,7 @@ impl SearchRequest {
         }
     }
 }
-/// Can be used to filter result output to a single category.
+/// Type of results to return.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Workflow {
     #[serde(rename = "search")]

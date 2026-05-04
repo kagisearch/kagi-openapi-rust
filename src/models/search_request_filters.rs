@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 /// SearchRequestFilters : Filters to apply to search results for more targeted queries.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchRequestFilters {
-    /// Filter results to a specific region using an ISO-3166-1 Alpha-2 country code. See https://help.kagi.com/api/regions for supported codes.
+    /// Filter results to a specific region using an ISO 3166-1 Alpha-2 country code. See https://help.kagi.com/api/regions for supported codes.
     #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
-    /// Filter for results published/updated after this date. Must be in ISO 8601 format (YYYY-MM-DD).
+    /// Filter for results published or updated after this date.
     #[serde(rename = "after", skip_serializing_if = "Option::is_none")]
-    pub after: Option<String>,
-    /// Filter for results published/updated before this date. Must be in ISO 8601 format (YYYY-MM-DD).
+    pub after: Option<chrono::NaiveDate>,
+    /// Filter for results published or updated before this date.
     #[serde(rename = "before", skip_serializing_if = "Option::is_none")]
-    pub before: Option<String>,
+    pub before: Option<chrono::NaiveDate>,
 }
 
 impl SearchRequestFilters {
