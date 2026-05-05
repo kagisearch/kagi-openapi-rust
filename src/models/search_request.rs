@@ -20,6 +20,9 @@ pub struct SearchRequest {
     /// Type of results to return.
     #[serde(rename = "workflow", skip_serializing_if = "Option::is_none")]
     pub workflow: Option<Workflow>,
+    /// Format to serialize the API response as.
+    #[serde(rename = "format", skip_serializing_if = "Option::is_none")]
+    pub format: Option<Format>,
     /// Lens to apply to the search. Can be a built-in lens's identifier or a lens ID as shown on https://kagi.com/settings/lenses when a lens is set to be shareable. Can be just the ID portion of the URL (`https://kagi.com/lenses/ID`) or the full URL.
     #[serde(rename = "lens_id", skip_serializing_if = "Option::is_none")]
     pub lens_id: Option<String>,
@@ -48,6 +51,7 @@ impl SearchRequest {
         SearchRequest {
             query,
             workflow: None,
+            format: None,
             lens_id: None,
             lens: None,
             timeout: None,
@@ -77,6 +81,20 @@ pub enum Workflow {
 impl Default for Workflow {
     fn default() -> Workflow {
         Self::Search
+    }
+}
+/// Format to serialize the API response as.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Format {
+    #[serde(rename = "json")]
+    Json,
+    #[serde(rename = "markdown")]
+    Markdown,
+}
+
+impl Default for Format {
+    fn default() -> Format {
+        Self::Json
     }
 }
 
