@@ -9,10 +9,6 @@ docs/ErrorEnvelope.md
 docs/ExtractApi.md
 docs/ExtractRequest.md
 docs/ExtractResponse.md
-docs/FastGpt200Response.md
-docs/FastGpt200ResponseData.md
-docs/FastGptApi.md
-docs/FastGptRequest.md
 docs/Meta.md
 docs/PageInput.md
 docs/PageOutput.md
@@ -31,9 +27,6 @@ docs/SearchRequestPersonalizationsDomainsInner.md
 docs/SearchRequestPersonalizationsRegexesInner.md
 docs/SearchResult.md
 docs/SearchResultImage.md
-docs/SummarizerApi.md
-docs/Summary.md
-docs/SummaryData.md
 docs/Translate200Response.md
 docs/Translate200ResponseOneOf.md
 docs/Translate200ResponseOneOf1.md
@@ -69,15 +62,12 @@ docs/TranslateWordInsights200ResponseInsightsInner.md
 docs/TranslateWordInsights200ResponseInsightsInnerVariationsInner.md
 docs/TranslateWordInsights400Response.md
 docs/TranslateWordInsights500Response.md
-docs/UploadText.md
 git_push.sh
 src/apis/configuration.rs
 src/apis/enrichment_api.rs
 src/apis/extract_api.rs
-src/apis/fast_gpt_api.rs
 src/apis/mod.rs
 src/apis/search_api.rs
-src/apis/summarizer_api.rs
 src/apis/translate_api.rs
 src/lib.rs
 src/models/enrich_search_200_response.rs
@@ -85,9 +75,6 @@ src/models/error_detail.rs
 src/models/error_envelope.rs
 src/models/extract_request.rs
 src/models/extract_response.rs
-src/models/fast_gpt_200_response.rs
-src/models/fast_gpt_200_response_data.rs
-src/models/fast_gpt_request.rs
 src/models/meta.rs
 src/models/mod.rs
 src/models/page_input.rs
@@ -106,8 +93,6 @@ src/models/search_request_personalizations_domains_inner.rs
 src/models/search_request_personalizations_regexes_inner.rs
 src/models/search_result.rs
 src/models/search_result_image.rs
-src/models/summary.rs
-src/models/summary_data.rs
 src/models/translate_200_response.rs
 src/models/translate_200_response_one_of.rs
 src/models/translate_200_response_one_of_1.rs
@@ -142,4 +127,3 @@ src/models/translate_word_insights_200_response_insights_inner.rs
 src/models/translate_word_insights_200_response_insights_inner_variations_inner.rs
 src/models/translate_word_insights_400_response.rs
 src/models/translate_word_insights_500_response.rs
-src/models/upload_text.rs
