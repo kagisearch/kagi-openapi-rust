@@ -20,7 +20,7 @@ pub struct ExtractRequest {
     /// Optional timeout in seconds for the extraction operation
     #[serde(rename = "timeout", skip_serializing_if = "Option::is_none")]
     pub timeout: Option<f32>,
-    /// Response format
+    /// **(EXPERIMENTAL)** Format to serialize the API response as. The exact contents and structure of markdown output is still being worked on - please send your feedback!
     #[serde(rename = "format", skip_serializing_if = "Option::is_none")]
     pub format: Option<Format>,
 }
@@ -35,7 +35,7 @@ impl ExtractRequest {
         }
     }
 }
-/// Response format
+/// **(EXPERIMENTAL)** Format to serialize the API response as. The exact contents and structure of markdown output is still being worked on - please send your feedback!
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Format {
     #[serde(rename = "json")]
