@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **lens** | Option<[**models::SearchRequestLens**](SearchRequestLens.md)> |  | [optional]
 **timeout** | Option<**f64**> | Number of seconds to allow for collecting search results. Lower values will return results more quickly, but may be lower quality or inconsistent between calls. If omitted, will use the latest recommended value by Kagi. | [optional]
 **page** | Option<**i32**> | Page number for paginated results. Must be between 1 and 10. | [optional]
-**limit** | Option<**i32**> | Maximum number of results to return. Must be between 1 and 1024. | [optional]
+**limit** | Option<**i32**> | Maximum number of results to return. Must be between 1 and 1024.  **NOTE:** This does not change the amount of results requested, it only limits the maximum amount returned. If omitted, the API always gives you the most results we can get in a single pass.  | [optional]
 **filters** | Option<[**models::SearchRequestFilters**](SearchRequestFilters.md)> |  | [optional]
 **extract** | Option<[**models::SearchRequestExtract**](SearchRequestExtract.md)> |  | [optional]
 **safe_search** | Option<**bool**> | Whether safe search is enabled, omitting potentially NSFW content. | [optional][default to true]
