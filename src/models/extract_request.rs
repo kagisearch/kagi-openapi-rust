@@ -17,7 +17,7 @@ pub struct ExtractRequest {
     /// Array of pages to extract content from. Must contain 1-10 URLs. Each URL must be a valid HTTPS URL. 
     #[serde(rename = "pages")]
     pub pages: Vec<models::PageInput>,
-    /// Optional timeout in seconds for the extraction operation
+    /// Optional timeout in seconds for the extraction operation. Out of range values will be clamped back within range.  All URLs are fetched concurrently. This timeout applies a time budget for the entire bulk fetch operation. 
     #[serde(rename = "timeout", skip_serializing_if = "Option::is_none")]
     pub timeout: Option<f32>,
     /// **(EXPERIMENTAL)** Format to serialize the API response as. The exact contents and structure of markdown output is still being worked on - please send your feedback!
