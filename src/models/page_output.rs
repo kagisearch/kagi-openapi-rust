@@ -17,9 +17,12 @@ pub struct PageOutput {
     /// The URL of the extracted page
     #[serde(rename = "url")]
     pub url: String,
-    /// Extracted markdown content of the page
+    /// Extracted markdown content of the page. Will be absent if extraction fails.
     #[serde(rename = "markdown", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub markdown: Option<Option<String>>,
+    /// If extraction fails, a string describing the reason why.
+    #[serde(rename = "error", skip_serializing_if = "Option::is_none")]
+    pub error: Option<String>,
 }
 
 impl PageOutput {
@@ -28,6 +31,7 @@ impl PageOutput {
         PageOutput {
             url,
             markdown: None,
+            error: None,
         }
     }
 }
